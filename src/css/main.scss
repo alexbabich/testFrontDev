@@ -1,46 +1,296 @@
+@import "reset";
 @import "const";
+@import "bootstrap-select";
 
-/* CSS Reset */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  margin: 0;
+//
+
+.no-padding {
   padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline; }
+}
 
-strong, b {
-  font-weight: bold; }
+.no-margin {
+  margin: 0;
+}
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-  display: block; }
+.container {
+  max-width: 1170px;
+  width: 100%;
+}
 
-body {
-  line-height: 1;
-  overflow-x: hidden; }
-
-ol, ul {
-  list-style: none; }
-
-blockquote, q {
-  quotes: none; }
-
-blockquote:before, blockquote:after {
-  content: "";
-  content: none; }
-
-q:before, q:after {
-  content: "";
-  content: none; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-/* End CSS Reset */
-/* Typography
- *------------------------------------- */
-* { margin: 0; padding: 0; }
+.topNavigationMenu {
+  font-size: 0;
+}
 
 
+.topNavigationMenu > div > div {
+  display: inline-block;
+  font-size: $mainFontSize;
+  margin: 1px 10px;
+  &.dropdown-currency {
+    margin-left: 0;
+  }
+  &.callus {
+    margin-right: 0;
+  }
+  a {
+    color: $mainColor;
+    padding: 10px 0;
+    display: block;
+  }
+  .fa {
+    margin-right: 5px;
+  }
+}
+
+.loginBlock {
+
+}
+
+.myWishlist {
+  position: relative;
+}
+
+
+//begin style for dropdown-select
+.dropdown-select {
+  background: transparent;
+  &:hover,
+  &:focus,
+  &:active {
+    .filter-option {
+      color: $secondColor;
+    }
+    .caret {
+      color: $secondColor;
+    }
+  }
+  + .dropdown-menu {
+    border-radius: 0;
+    padding: 0;
+    li a {
+      text-align: center;
+      color: $mainColor;
+      font-size: $mainFontSize;
+      &:hover,
+      &:focus,
+      &.selected,
+      &:hover {
+        background: $secondColor;
+        color: #fff;
+        box-shadow: none;
+        outline: none;
+      }
+    }
+
+  }
+}
+
+.dropdown-language {
+  .dropdown-select {
+    .filter-option {
+      position: relative;
+      padding-left: 20px;
+      &:before {
+        content: "";
+        position: absolute;
+        height: 11.5px;
+        width: 14.5px;
+        background-image: url("../img/sprite-flag.png");
+        background-size: auto;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+    &[title="English"] .filter-option:before {
+      background-position: 0 0;
+    }
+
+    &[title="French"] .filter-option:before {
+      background-position: 0 -13px;
+    }
+
+    &[title="German"] .filter-option:before {
+      background-position: 0 -26px;
+    }
+
+    &[title="Bolivia"] .filter-option:before {
+      background-position: 0 -51px;
+    }
+
+    &[title="Argentina"] .filter-option:before {
+      background-position: 0 -38px;
+    }
+  }
+}
+
+.dropdown-language {
+  .dropdown-select {
+    + .dropdown-menu {
+      left: -10px;
+      li {
+        width: 96px;
+      }
+      a {
+        text-align: left;
+        position: relative;
+        padding-left: 32.5px;
+        &:before {
+          content: "";
+          position: absolute;
+          height: 10.5px;
+          width: 14.5px;
+          background-image: url("../img/sprite-flag.png");
+          background-size: auto;
+          left: 9.5px;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+        &.en:before {
+          background-position: 0 0;
+        }
+        &.fr:before {
+          background-position: 0 -13px;
+        }
+        &.ge:before {
+          background-position: 0 -26px;
+        }
+        &.bl:before {
+          background-position: 0 -51px;
+        }
+        &.ag:before {
+          background-position: 0 -38px;
+        }
+      }
+    }
+  }
+}
+
+.dropdown-toggle {
+  padding: 0 10px 0 0;
+}
+
+.btn-group.open .dropdown-toggle {
+  box-shadow: none;
+}
+
+//end style for dropdown-select
+
+
+.bottom-line {
+  border-bottom: 1px solid #ddd;
+}
+
+// begin style for logo
+.logo-wrapper {
+  .main-text {
+    color: $secondColor;
+    font: $fontBlack;
+    font-size: 34px;
+    line-height: 1;
+    text-transform: uppercase;
+    span {
+      font: $fontRegular;
+      font-size: 14px;
+      color: #969696;
+      display: block;
+      text-transform: capitalize;
+      letter-spacing: 3.5px;
+    }
+  }
+}
+
+// end style for logo
+
+.header {
+  margin: 30px 0;
+}
+
+.search-wrapper {
+  max-width: 431px;
+  width: 100%;
+  font-size: 0;
+  padding: 0;
+  margin: 2px 0;
+  .input-wrapper,
+  button {
+    display: inline-block;
+  }
+  button {
+    width: 91px;
+    background: $secondColor;
+    border: 0;
+    color: #fff;
+    font: $fontBold;
+    font-size: 14px;
+    height: 42px;
+  }
+  .input-wrapper {
+    max-width: 340px;
+    width: 100%;
+  }
+  .search-input {
+    height: 42px;
+    width: 100%;
+    outline: none;
+    background: transparent;
+    border-color: #dadada;
+    border-style: solid;
+    border-width: 1px 0 1px 1px;
+    font: $fontRegular;
+    font-size: 12px;
+    color: #999;
+    padding: 10px 0 10px 53px;
+  }
+  .input-wrapper {
+    position: relative;
+    &:after,
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    &:after {
+      height: 30px;
+      margin: auto;
+      width: 1px;
+      left: 41px;
+      background: #dadada;
+    }
+    &:before {
+      background: url("../img/icon-search.png") no-repeat center;
+      height: 18px;
+      width: 18px;
+      left: 12px;
+    }
+  }
+}
+
+
+// begin style for cart-info
+.cart-info {
+  background: $secondColor;
+  color: #fff;
+  width: 171px;
+  height: 103px;
+  position: relative;
+  top: -30px;
+  p {
+    margin: 0;
+  }
+  .cart-name {
+    font: $fontBlack;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  .cart-count {
+    font: $fontRegular;
+    font-size: 12px;
+  }
+}
+// end style for cart-info
