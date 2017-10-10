@@ -2,8 +2,6 @@
 @import "const";
 @import "bootstrap-select";
 
-//
-
 .no-padding {
   padding: 0;
 }
@@ -17,10 +15,11 @@
   width: 100%;
 }
 
+
+//begin style for top navigation
 .topNavigationMenu {
   font-size: 0;
 }
-
 
 .topNavigationMenu > div > div {
   display: inline-block;
@@ -32,6 +31,11 @@
   &.callus {
     margin-right: 0;
   }
+  &:hover {
+    a {
+      color: #909090;
+    }
+  }
   a {
     color: $mainColor;
     padding: 10px 0;
@@ -42,16 +46,12 @@
   }
 }
 
-.loginBlock {
-
-}
-
 .myWishlist {
   position: relative;
 }
 
 
-//begin style for dropdown-select
+////begin style for dropdown-select
 .dropdown-select {
   background: transparent;
   &:hover,
@@ -85,47 +85,7 @@
   }
 }
 
-.dropdown-language {
-  .dropdown-select {
-    .filter-option {
-      position: relative;
-      padding-left: 20px;
-      &:before {
-        content: "";
-        position: absolute;
-        height: 11.5px;
-        width: 14.5px;
-        background-image: url("../img/sprite-flag.png");
-        background-size: auto;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-      }
-    }
-    &[title="English"] .filter-option:before {
-      background-position: 0 0;
-    }
-
-    &[title="French"] .filter-option:before {
-      background-position: 0 -13px;
-    }
-
-    &[title="German"] .filter-option:before {
-      background-position: 0 -26px;
-    }
-
-    &[title="Bolivia"] .filter-option:before {
-      background-position: 0 -51px;
-    }
-
-    &[title="Argentina"] .filter-option:before {
-      background-position: 0 -38px;
-    }
-  }
-}
-
-.dropdown-language {
+.dropdownLanguage {
   .dropdown-select {
     + .dropdown-menu {
       left: -10px;
@@ -165,6 +125,41 @@
         }
       }
     }
+    .filter-option {
+      position: relative;
+      padding-left: 20px;
+      &:before {
+        content: "";
+        position: absolute;
+        height: 11.5px;
+        width: 14.5px;
+        background-image: url("../img/sprite-flag.png");
+        background-size: auto;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+    &[title="English"] .filter-option:before {
+      background-position: 0 0;
+    }
+
+    &[title="French"] .filter-option:before {
+      background-position: 0 -13px;
+    }
+
+    &[title="German"] .filter-option:before {
+      background-position: 0 -26px;
+    }
+
+    &[title="Bolivia"] .filter-option:before {
+      background-position: 0 -51px;
+    }
+
+    &[title="Argentina"] .filter-option:before {
+      background-position: 0 -38px;
+    }
   }
 }
 
@@ -175,17 +170,22 @@
 .btn-group.open .dropdown-toggle {
   box-shadow: none;
 }
+////end style for dropdown-select
 
-//end style for dropdown-select
 
-
-.bottom-line {
+.bottomLine {
   border-bottom: 1px solid #ddd;
 }
+//end style for top navigation
 
-// begin style for logo
-.logo-wrapper {
-  .main-text {
+//begin style for header block
+.header {
+  margin: 30px 0 -30px;
+}
+
+////begin style for logo
+.logoWrapper {
+  .mainText {
     color: $secondColor;
     font: $fontBlack;
     font-size: 34px;
@@ -202,23 +202,20 @@
   }
 }
 
-// end style for logo
+//// end style for logo
 
-.header {
-  margin: 30px 0;
-}
-
-.search-wrapper {
+////begin style for search block
+.searchWrapper {
   max-width: 431px;
   width: 100%;
   font-size: 0;
   padding: 0;
   margin: 2px 0;
-  .input-wrapper,
-  button {
+  .inputWrapper,
+  .cmdSearch {
     display: inline-block;
   }
-  button {
+  .cmdSearch {
     width: 91px;
     background: $secondColor;
     border: 0;
@@ -226,12 +223,15 @@
     font: $fontBold;
     font-size: 14px;
     height: 42px;
+    &:hover {
+      background: #23B5C7;
+    }
   }
-  .input-wrapper {
+  .inputWrapper {
     max-width: 340px;
     width: 100%;
   }
-  .search-input {
+  .searchInput {
     height: 42px;
     width: 100%;
     outline: none;
@@ -244,7 +244,7 @@
     color: #999;
     padding: 10px 0 10px 53px;
   }
-  .input-wrapper {
+  .inputWrapper {
     position: relative;
     &:after,
     &:before {
@@ -271,26 +271,105 @@
   }
 }
 
+////end style for search block
 
-// begin style for cart-info
-.cart-info {
+
+////begin style for cart-info
+.cartInfo {
   background: $secondColor;
   color: #fff;
   width: 171px;
   height: 103px;
   position: relative;
   top: -30px;
+  padding: 10px 0;
   p {
-    margin: 0;
+    margin: 0 0 5px;
   }
-  .cart-name {
+  .cartIcon {
+    font-size: 24px;
+  }
+  .cartName {
     font: $fontBlack;
     font-size: 14px;
     text-transform: uppercase;
   }
-  .cart-count {
+  .cartCount {
     font: $fontRegular;
     font-size: 12px;
   }
 }
-// end style for cart-info
+////end style for cart-info
+
+////begin style for delivery info block
+.deliveryInfo {
+  position: relative;
+  margin-left: 20px;
+  padding-left: 30px;
+  &:before {
+    content: "";
+    height: 70%;
+    width: 2px;
+    background: #dadada;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+  .deliveryIcon {
+  }
+}
+////end style for delivery info block
+
+//end style for header block
+
+//begin style for main menu
+.mainMenu {
+  background: #202020;
+  font-size: 0;
+  height: 50px;
+  width: 100%;
+  z-index: 2;
+  position: relative;
+  a {
+    color: #fff;
+    padding: 10px 16px;
+    display: block;
+    text-decoration: none;
+    font: $fontBlack;
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 30px;
+    &.homeLink {
+      font-size: 20px;
+    }
+  }
+  .navigationList {
+    li {
+      vertical-align: top;
+      &:hover {
+        background: $secondColor;
+      }
+    }
+  }
+  .socialList {
+    background: #414141;
+    margin: 0;
+    padding: 0 29px;
+    li {
+      padding: 0;
+      a {
+        padding: 10px 5px;
+        color: #b6b6b6;
+      }
+    }
+  }
+}
+
+////begin style for bundle
+.bundle {
+
+}
+////begin style for bundle
+
+//end style for main menu
