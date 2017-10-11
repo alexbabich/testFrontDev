@@ -1,6 +1,13 @@
 @import "reset";
 @import "const";
 @import "bootstrap-select";
+@import "bundle";
+
+
+* {
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+}
 
 .no-padding {
   padding: 0;
@@ -25,7 +32,7 @@
   display: inline-block;
   font-size: $mainFontSize;
   margin: 1px 10px;
-  &.dropdown-currency {
+  &.dropdownCurrency {
     margin-left: 0;
   }
   &.callus {
@@ -40,6 +47,7 @@
     color: $mainColor;
     padding: 10px 0;
     display: block;
+    font-size: 12px;
   }
   .fa {
     margin-right: 5px;
@@ -48,8 +56,8 @@
 
 .myWishlist {
   position: relative;
+  text-transform: capitalize;
 }
-
 
 ////begin style for dropdown-select
 .dropdown-select {
@@ -81,7 +89,6 @@
         outline: none;
       }
     }
-
   }
 }
 
@@ -96,6 +103,7 @@
         text-align: left;
         position: relative;
         padding-left: 32.5px;
+        font-size: 12px;
         &:before {
           content: "";
           position: absolute;
@@ -163,6 +171,20 @@
   }
 }
 
+.dropdownUserInfo {
+  .bootstrap-select.btn-group .dropdown-toggle {
+    line-height: 1.2;
+    .filter-option {
+      overflow: visible;
+      font: $fontRegular;
+      &:before {
+        font: 14px/1 FontAwesome;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
 .dropdown-toggle {
   padding: 0 10px 0 0;
 }
@@ -176,6 +198,28 @@
 .bottomLine {
   border-bottom: 1px solid #ddd;
 }
+
+.livechatLink,
+.callusLink {
+  font: $fontRegular;
+  span {
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+  i {
+    font-size: 20px;
+    top: 3px;
+    position: relative;
+    color: #828282;
+  }
+}
+
+.livechatLink {
+  span {
+    text-transform: uppercase;
+  }
+}
+
 //end style for top navigation
 
 //begin style for header block
@@ -185,6 +229,9 @@
 
 ////begin style for logo
 .logoWrapper {
+  width: 21%;
+  max-width: 245px;
+  float: left;
   .mainText {
     color: $secondColor;
     font: $fontBlack;
@@ -211,6 +258,15 @@
   font-size: 0;
   padding: 0;
   margin: 2px 0;
+  &.onFocus {
+    box-shadow: 0 0 5px $secondColor;
+    .searchInput {
+      border-color: $secondColor;
+    }
+    .inputWrapper:before {
+      background-position: top left;
+    }
+  }
   .inputWrapper,
   .cmdSearch {
     display: inline-block;
@@ -263,7 +319,7 @@
       background: #dadada;
     }
     &:before {
-      background: url("../img/icon-search.png") no-repeat center;
+      background: url("../img/icon-search.png") no-repeat top right;
       height: 18px;
       width: 18px;
       left: 12px;
@@ -304,19 +360,40 @@
 ////begin style for delivery info block
 .deliveryInfo {
   position: relative;
-  margin-left: 20px;
-  padding-left: 30px;
+  margin-left: 45px;
+  padding-left: 33px;
+  float: left;
   &:before {
     content: "";
-    height: 70%;
-    width: 2px;
+    height: 185%;
+    width: 1px;
     background: #dadada;
     position: absolute;
     left: 0;
-    top: 0;
+    top: -20px;
     bottom: 0;
   }
   .deliveryIcon {
+    color: $secondColor;
+    float: left;
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  .textWrapper {
+    float: right;
+  }
+  .deliveryText,
+  .deliveryText2 {
+    margin: 0;
+    text-transform: capitalize;
+  }
+  .deliveryText {
+    font: $fontBoldLi;
+    font-size: 18px;
+    color: #444;
+  }
+  .deliveryText2 {
+    color: #999;
   }
 }
 ////end style for delivery info block
@@ -331,7 +408,7 @@
   width: 100%;
   z-index: 2;
   position: relative;
-  a {
+  .navigationList > li > a {
     color: #fff;
     padding: 10px 16px;
     display: block;
@@ -340,18 +417,42 @@
     font-size: 14px;
     text-transform: uppercase;
     line-height: 30px;
+    position: relative;
     &.homeLink {
       font-size: 20px;
     }
   }
+
   .navigationList {
     li {
       vertical-align: top;
+      &.active,
+      &.open,
       &:hover {
         background: $secondColor;
       }
+      &.open {
+        position: relative;
+      }
+      &.features {
+        .dropdown-menu {
+          left: -55%;
+          width: 100%;
+          min-width: 1145px;
+          border-radius: 0;
+        }
+      }
+      .dropdown-menu {
+        position: absolute;
+        top: 95%;
+        left: 0;
+      }
+      .subcategoryItem {
+        margin: 0 10px 20px;
+      }
     }
   }
+
   .socialList {
     background: #414141;
     margin: 0;
@@ -361,15 +462,12 @@
       a {
         padding: 10px 5px;
         color: #b6b6b6;
+        &:hover {
+          color: $secondColor;
+        }
       }
     }
   }
 }
-
-////begin style for bundle
-.bundle {
-
-}
-////begin style for bundle
 
 //end style for main menu
